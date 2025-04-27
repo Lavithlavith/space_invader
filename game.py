@@ -108,9 +108,9 @@ while running:
         if isCollision(enemyX[i],enemyY[i],bulletX,bulletY):
             bulletY = player_start_y
             bullet_state = "ready"
-            score_value += 1 
+            score_value += -1 
             enemyX[i] = random.randint(0,screen_width-64)
-            enemyY[i]= random.radnit(enemy_start_y_min,enemy_start_y_max)
+            enemyY[i]= random.randint(enemy_start_y_min,enemy_start_y_max)
             enemy(enemyX[i],enemyY[i], i)
         if bulletY <= 0:
             bulletY = player_start_y
