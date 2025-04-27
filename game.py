@@ -1,6 +1,7 @@
 import pygame 
 import math
 import random 
+from pygame import mixer_music
 
 screen_width = 800
 screen_height = 500
@@ -13,7 +14,12 @@ enemy_speed_y = 40
 bullet_speed_y = 10
 collision_distance = 27
 
+
+
 pygame.init()
+pygame.mixer_music.load('ambient-soundscapes-004-space-atmosphere-303243.mp3') # Replace with your music file
+
+pygame.mixer_music.play(-1) # -1 means loop indefinitely
 screen = pygame.display.set_mode((screen_width , screen_height))
 background = pygame.image.load('background.png')
 pygame.display.set_caption("Space invaders")
@@ -90,7 +96,7 @@ while running:
             if event.key == pygame.K_SPACE and bullet_state == "ready":
                 bulletX = playerX
                 fire_bullet(bulletX, bulletY)
-        if event.type == pygame.KEYUP and event.key in [pygame.K_LEFT , pygame.K_RIGHT]:
+        if event.type == pygame.KEYUP and event.key in [pygame.K_LEFT , pygame.K_RIGHT]:      
             playerX_change = 0
         playerX += playerX_change
         playerX = max(0,min(playerX, screen_width - 64))
